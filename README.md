@@ -1,2 +1,2 @@
 # openinnovation
-Creation of a connected table football for the Open Innovation Project
+Creation of a connected baby foot for the Open Innovation Project
