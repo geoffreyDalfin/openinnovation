@@ -18,18 +18,7 @@ const board = new five.Board({
 const RIGHT_SENSOR_PIN = "A0";
 const LEFT_SENSOR_PIN = "D0";
 board.on('ready', () => {
-    //const LeftMotion = new five.Sensor("D7");
     const RightMotion = new five.Sensor(RIGHT_SENSOR_PIN);
-
-    // const RightMotion = new five.Motion({
-    //     pin: "A0",
-    //     freq: 1
-    // });
-
-    // var LeftMotion = new five.Motion({
-    //     pin: "D0",
-    //     freq: 1
-    // });
 
     const express = require('express');
     const app = express();
@@ -62,7 +51,6 @@ board.on('ready', () => {
 
     app.set('port', process.env.PORT || 3030);
 
-    //var server = 
     app.listen(app.get('port'), function () {
         console.log("|-----| Board service started |-----|");
     });
@@ -78,6 +66,7 @@ board.on('ready', () => {
                         "game": game.ID,
                         "user": {
                             "ID": rightUser.ID,
+                            "Name": rightUser.Name,
                             "Point": rightUser.Point,
                         }
                     })
@@ -89,42 +78,4 @@ board.on('ready', () => {
             }
         }
     });
-
-    // LeftMotion.on("change", function () {
-    //     console.log(" Left " + LeftMotion.value);
-    // });
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const LED_PIN = 2;
-
-// board.on('ready', () => {
-//   board.pinMode(LED_PIN, five.Pin.OUTPUT);
-//   // the Led class was acting hinky, so just using Pin here
-//   const pin = five.Pin(LED_PIN);
-//   let value = 0;
-//   setInterval(() => {
-//     if (value) {
-//       pin.high();
-//       value = 0;
-//     } else {
-//       pin.low();
-//       value = 1;
-//     }
-//   }, 500);
-// });

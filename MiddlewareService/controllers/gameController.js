@@ -50,7 +50,7 @@ module.exports = {
         },
         userRight: {
             ID: isSuccessUserRight.insertId,
-            Name: userRight.insertId,
+            Name: userRight,
             Point: 0,
         }
       }); 
@@ -67,12 +67,18 @@ module.exports = {
     addPointToUser: function (req, res ,next) {
         const idGame = req.body.game;
         const user = req.body.user;
-        console.log(user);
-    //     const addPoint = 
-    //    // const result = await db.getUserPoint(user, idUser);
-    //     res.io.emit('AddPoint', {
-    //         user: user,
-    //         match: match,
-    //     });
+        res.io.emit('AddPoint', {
+            user: user
+            // match: match,
+        });
+
+        res.status(200).json({
+            Game: idGame,
+            User: {
+                    ID: user.ID,
+                    Name: user.Name,
+                    Point: user.Point,
+            }
+        })
     }
 };
