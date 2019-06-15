@@ -4,9 +4,9 @@ var mysql = require('mysql');
  * db configuration object
  */
 var db = mysql.createConnection({
-    host: 'mysql-babyconnect.alwaysdata.net',
-    user: '185254',
-    password: '289KJL17',
+    host: 'your_host',
+    user: 'your_user',
+    password: 'your_pass',
     database: 'babyconnect_innovation',
 });
 
